@@ -1,0 +1,81 @@
+/**
+ * ARQUIVO: src/app/globals.css
+ * CAMADA: ui
+ * MÓDULO: aplicação
+ *
+ * RESPONSABILIDADE:
+ * Definir estilos globais da aplicação OpinaAi.
+ *
+ * O QUE ESTE ARQUIVO FAZ:
+ * - importa o Tailwind CSS;
+ * - define variáveis globais de cor e fonte;
+ * - aplica box-sizing global;
+ * - define comportamento de rolagem suave;
+ * - configura fundo, cor de texto, fonte e altura mínima do body.
+ *
+ * IMPORTÂNCIA NO SISTEMA:
+ * Este arquivo fornece a base visual global do OpinaAi Core.
+ * Ele afeta todas as telas públicas, incluindo entrada por token
+ * e página de avaliação.
+ *
+ * OBSERVAÇÃO ARQUITETURAL:
+ * Este arquivo não deve conter regras específicas de dashboard,
+ * páginas administrativas ou módulos fora do Core. Estilos específicos
+ * devem continuar nos componentes por meio de classes Tailwind.
+ */
+
+@import "tailwindcss";
+
+/**
+ * ======================================================
+ * 1. Variáveis globais de aparência
+ * ======================================================
+ *
+ * Define as cores e fontes base da aplicação.
+ *
+ * DECISÃO DE UX:
+ * O fundo claro e o texto escuro preservam legibilidade nas telas
+ * públicas de avaliação.
+ */
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: monospace;
+}
+
+/**
+ * ======================================================
+ * 2. Normalização global
+ * ======================================================
+ *
+ * Garante cálculo de tamanho previsível para todos os elementos.
+ */
+* {
+  box-sizing: border-box;
+}
+
+/**
+ * ======================================================
+ * 3. Comportamento base do documento
+ * ======================================================
+ *
+ * Mantém rolagem suave em navegações internas.
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+/**
+ * ======================================================
+ * 4. Corpo da aplicação
+ * ======================================================
+ *
+ * Aplica as cores, fonte e altura mínima usadas por todas as páginas.
+ */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
