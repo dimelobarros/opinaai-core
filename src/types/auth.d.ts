@@ -1,39 +1,28 @@
-import { Role } from '@/modules/identity/domain/enums/role.enum';
+import { DefaultSession } from 'next-auth';
 
 import 'next-auth';
+import 'next-auth/jwt';
 
 /**
- * Extensão de tipos do Auth.js.
- *
- * Responsabilidade:
- *
- * Permitir que a sessão carregue:
- * - id do usuário;
- * - role (papel);
- * - dados administrativos.
- *
- * Impacto arquitetural:
- *
- * Garante tipagem consistente em:
- * - frontend;
- * - backend;
- * - middleware;
- * - server actions futuras.
+ * Tipagem global da autenticação.
  */
+
 declare module 'next-auth' {
-    interface Session {
-        user: {
-            id: string;
-            role: Role;
-            email: string;
-            name: string;
-        };
-    }
+  interface Session {
+    user: {
+      id: string;
+      role: string;
+    } & DefaultSession['user'];
+  }
+
+  interface User {
+    role: string;
+  }
 }
 
 declare module 'next-auth/jwt' {
-    interface JWT {
-        id: string;
-        role: Role;
-    }
+  interface JWT {
+    id: string;
+    role: string;
+  }
 }
