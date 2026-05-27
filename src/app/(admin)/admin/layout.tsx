@@ -3,7 +3,10 @@ import { redirect } from 'next/navigation';
 import { auth } from '@/modules/identity/infrastructure/auth/auth';
 
 /**
- * Layout protegido do admin.
+ * Layout protegido da área administrativa.
+ *
+ * Responsável por impedir renderização
+ * do admin sem sessão válida.
  */
 export default async function AdminLayout({
   children
@@ -12,7 +15,10 @@ export default async function AdminLayout({
 }) {
   const session = await auth();
 
-  if (!session) {
+  /**
+   * Proteção mínima obrigatória.
+   */
+  if (!session || !session.user) {
     redirect('/login');
   }
 

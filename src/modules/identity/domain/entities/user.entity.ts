@@ -1,5 +1,11 @@
 /**
- * Entidade do usuário.
+ * Entidade de domínio do usuário.
+ *
+ * O projeto utiliza entidades baseadas
+ * em interfaces/types neste módulo.
+ *
+ * Esta estrutura representa o usuário
+ * persistido no banco.
  */
 export interface UserEntity {
     id: string;

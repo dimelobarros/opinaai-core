@@ -4,7 +4,12 @@ import { UserEntity } from '../../domain/entities/user.entity';
 import { UserRepository } from '../../domain/repositories/user.repository';
 
 /**
- * Repositório PostgreSQL de usuários.
+ * Repositório PostgreSQL responsável
+ * pela persistência dos usuários.
+ *
+ * Esta implementação foi ajustada
+ * para manter compatibilidade total
+ * com o schema atual do projeto.
  */
 export class PostgresUserRepository implements UserRepository {
   async findByEmail(email: string): Promise<UserEntity | null> {
@@ -22,7 +27,6 @@ export class PostgresUserRepository implements UserRepository {
         FROM users
         WHERE email = $1
           AND is_active = TRUE
-          AND deleted_at IS NULL
         LIMIT 1
       `,
       [normalizedEmail]

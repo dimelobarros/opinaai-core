@@ -22,22 +22,33 @@ export default function LoginPage() {
     setLoading(true);
     setError('');
 
-    const response = await signIn('credentials', {
-      email,
-      password,
-      redirect: false
-    });
+    try {
+      const response = await signIn('credentials', {
+        email,
+        password,
+        redirect: false
+      });
 
+      /**
+       * Credenciais inválidas.
+       */
+      if (response?.error) {
+        setError('E-mail ou senha inválidos.');
+        setLoading(false);
+        return;
+      }
 
-    if (response?.error) {
-      setError('Credenciais inválidas');
+      /**
+       * Login concluído.
+       */
+      router.push('/admin');
+    } catch (error) {
+      console.error(error);
+
+      setError('Erro ao realizar login.');
+    } finally {
       setLoading(false);
-      return;
     }
-
-    setLoading(false);
-
-    router.push('/admin');
   }
 
   return (
