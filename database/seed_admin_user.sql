@@ -30,10 +30,10 @@ VALUES (
     'admin@opinaai.com',
 
     -- Senha original:
-    -- Admin@123
+    -- admin@12345
     --
     -- Hash gerado com Argon2.
-    '$argon2id$v=19$m=65536,t=3,p=4$QW5vbnltb3VzU2FsdA$4mRk4J7rP9J4O1s5x0y3w3m1J7g5W7l6vN2m3y0z1wY',
+    '$argon2id$v=19$m=65536,t=3,p=4$99H5o/B55Px7lYaSI4Fi9A$pm5Q+0YTd6oOLKTAvgweZFPYRotd0JT1NO35eHdvCsw',
 
     'ADMIN',
 
