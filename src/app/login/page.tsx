@@ -42,6 +42,7 @@ export default function LoginPage() {
        * Login concluído.
        */
       router.push('/admin');
+      router.refresh();
     } catch (error) {
       console.error(error);
 

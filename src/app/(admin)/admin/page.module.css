@@ -1,0 +1,9 @@
+.container {
+    padding: 32px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
