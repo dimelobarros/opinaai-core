@@ -1,7 +1,7 @@
 import type { NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 
-import { AuthenticateUserUseCase } from '../../application/use-cases/authenticate-user.use-case';
+import { AuthenticateUserUseCase } from '../../application/authenticate-user.use-case';
 import { loginSchema } from '../validations/login.schema';
 
 /**

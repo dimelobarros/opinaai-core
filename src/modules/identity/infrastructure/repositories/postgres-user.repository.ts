@@ -1,7 +1,7 @@
 import { pool } from '@/shared/infra/database/connection/postgres';
 
-import { UserEntity } from '../../domain/entities/user.entity';
-import { UserRepository } from '../../domain/repositories/user.repository';
+import { UserEntity } from '../../domain/user.entity';
+import { UserRepository } from './user.repository';
 
 /**
  * Repositório PostgreSQL responsável

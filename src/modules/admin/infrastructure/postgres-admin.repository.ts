@@ -1,7 +1,7 @@
 import { pool } from '@/shared/infra/database/connection/postgres';
 
-import { AdminEntity } from '../../domain/entities/admin.entity';
-import { AdminRepository } from '../../domain/repositories/admin.repository';
+import { AdminEntity } from '../domain/admin.entity';
+import { AdminRepository } from './admin.repository';
 
 /**
  * Repository responsável por carregar

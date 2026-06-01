@@ -1,5 +1,5 @@
-import { PasswordService } from '../../infrastructure/auth/password';
-import { PostgresUserRepository } from '../../infrastructure/repositories/postgres-user.repository';
+import { PasswordService } from '../infrastructure/auth/password';
+import { PostgresUserRepository } from '../infrastructure/repositories/postgres-user.repository';
 
 const repository = new PostgresUserRepository();
 
