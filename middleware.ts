@@ -3,9 +3,20 @@ import { NextResponse } from 'next/server';
 import { auth } from '@/modules/identity/infrastructure/auth/auth';
 
 /**
- * Middleware global responsável
- * pela proteção da área administrativa.
+ * Middleware responsável por proteger
+ * todas as rotas administrativas.
+ *
+ * Esta implementação mantém compatibilidade
+ * com a estrutura atual do projeto.
+ *
+ * Não adicionamos RBAC aqui.
+ *
+ * O objetivo desta etapa é apenas garantir:
+ * - autenticação válida;
+ * - sessão carregada;
+ * - acesso seguro ao admin.
  */
+
 export default auth((req) => {
     const isAuthenticated = !!req.auth;
 
@@ -13,8 +24,11 @@ export default auth((req) => {
         req.nextUrl.pathname.startsWith('/admin');
 
     /**
-     * Bloqueia acesso sem login.
-     */
+   * Caso o usuário tente acessar
+   * área administrativa sem sessão,
+   * redireciona para login.
+   */
+  
     if (isAdminRoute && !isAuthenticated) {
         return NextResponse.redirect(
             new URL('/login', req.url),

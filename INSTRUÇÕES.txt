@@ -1,0 +1,116 @@
+REQUISITOS TÉCNICOS:
+
+Para rodar o projeto, você precisa ter:
+
+	Node.js instalado na máquina (Download da versão em LTS: https://nodejs.org/en/download)
+
+	PostgreSQL + pgAdmin (Download em: https://www.postgresql.org/download/)
+
+	Git (Download em: https://git-scm.com/install/windows)
+
+
+
+
+
+PASSO 1: FAÇA O CLONE DO PROJETO EM SUA MÁQUINA LOCAL
+
+No GitHub, entre no repositório do projeto (opinaai-core) e, com a branch 'main' selecionada, clique em CODE.
+
+Copie o endereço do repositório GitHub (algo como: https://github.com/dimelobarros/opinaai-core.git).
+
+Preferencialmente, crie uma pasta local no PC que receberá os códigos do projeto.
+
+Após criar, abra o terminal do Git (Bash) na pasta que deseja armazenar os códigos do projeto.
+
+Clone o projeto para a pasta local utilizando o comando:
+
+	git clone NomeDoRepositório (ficará algo como: git clone https://github.com/dimelobarros/opinaai-core.git )
+
+
+
+
+
+PASSO 2: CONFIGURANDO O PROJETO LOCALMENTE:
+
+Com o código da branch 'main' na máquina, abra o terminal do Git (Bash) na pasta que foi clonada (opinaai-core).
+
+	* para saber se está na pasta correta, certifique-se de que consegue ver no terminal do Git (bash) a branch 'main' informada.
+
+Para visualizar as branchs disponíveis, utilize o comando:
+
+	git branch -r
+
+	* Esse 'r' vem de REMOTE. isso porque a branch que foi clonada para a máquina foi a 'main' e todas as outras ainda estão em modo remoto.
+
+Para baixar a branch que deseja trabalhar, utilize o comando:
+
+	git checkout nomeDaBranch (ficará algo como: git checkout auth)
+
+Ao clonar o projeto, ele traz apenas o conteúdo essencial, sendo necessário baixar todas as dependências e módulos na máquina local. Para fazer isso, rode os comandos:
+
+
+	npm install
+
+	npm install -d @types/node
+
+
+
+
+
+PASSO 3:  CONFIGURANDO O BANCO DE DADOS:
+
+Abra o pgAdmin e crie um novo banco de dados chamado 'opinaai'.
+
+Observe que na pasta 'database' possui atualmente QUATRO scripts. Abra o pgAdmin e rode script a script na sequinte ordem:
+
+	schema.sql
+
+	auth.sql
+
+	seed_admin_user.sql
+
+	seed-fase-2.sql
+
+
+	* Isso criará as tabelas do banco de dados e irá inserir os dados necessários para rodar o projeto.
+
+Agora, abra o VSCode e importe a pasta principal do projeto (opinaai-core).
+
+
+
+
+PASSO 4 - CONFIGURAÇÕES FINAIS:
+
+Na pasta raiz do projeto, crie um arquivo chamado '.env.local'
+
+Adicione a ele o seguinte código:
+
+	DATABASE_URL=postgresql://postgres:SENHA_DO_SEU_BANCO@localhost:5432/opinaai
+
+	AUTH_SECRET=super-secret-key
+	NEXTAUTH_SECRET=super-secret-key
+	NEXTAUTH_URL=http://localhost:3000
+
+
+Ainda na pasta raiz do projeto, abra o arquivo 'tsconfig.json'
+
+Adicione às configurações dele o seguinte código dentro das chaves {...} de 'compilerOptions':
+
+
+	"typeRoots": [
+      	"./node_modules/@types",
+      	"./src/shared/types"
+    	],
+
+
+Cheque também se a variável 'paths' está da seguinte forma:
+
+
+	"paths": {
+      	"@/*": [
+        "./src/*"
+      	]
+    }
+
+
+RODE O PROJETO COM O COMANDO: npm run dev
