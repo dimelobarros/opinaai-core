@@ -20,11 +20,11 @@ A solução implementa um fluxo de avaliação de eventos no qual participantes 
 
 ### Comentários
 
-![Tela de avaliação do OpinaAi](docs/screenshots/opinaai-comentarios.png)
+![Tela de comentários finais do OpinaAi](docs/screenshots/opinaai-comentarios.png)
 
 ### Avaliação concluída
 
-![Tela de avaliação do OpinaAi](docs/screenshots/opinaai-concluida.png)
+![Tela de conclusão da avaliação do OpinaAi](docs/screenshots/opinaai-concluida.png)
 
 ---
 
