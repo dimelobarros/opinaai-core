@@ -1,35 +1,76 @@
 # OpinaAi Core
 
-OpinaAi Core é o núcleo público funcional do sistema OpinaAi.
+### Projeto Integrador — Programador Full Stack | SENAC-RN
 
-Esta versão contém apenas o fluxo real de avaliação por token, com validação antifraude, persistência em PostgreSQL e envio de respostas.
+O **OpinaAi Core** é uma aplicação web Full Stack desenvolvida como **Projeto Integrador para conclusão do curso Programador Full Stack do SENAC-RN**.
 
-O objetivo deste repositório é manter somente o que está funcional e em uso no sistema atual, preparando o projeto para GitHub, Vercel e continuidade com equipe.
+O projeto foi construído com o objetivo de aplicar, de forma integrada, competências desenvolvidas ao longo da formação em desenvolvimento front-end, back-end, banco de dados, serviços web e integração entre aplicações.
+
+A solução implementa um fluxo de avaliação de eventos no qual participantes acessam um questionário por meio de token, respondem às perguntas disponíveis e têm suas avaliações persistidas em banco de dados PostgreSQL.
 
 ---
 
-## Escopo desta versão
+## Sobre o projeto
 
-Esta primeira versão migrada inclui:
+O OpinaAi foi concebido como uma solução para coleta estruturada de avaliações de participantes de eventos.
 
-- entrada pública por token;
-- geração de fingerprint do dispositivo;
-- validação antifraude;
-- criação ou retomada de avaliação;
-- carregamento de perguntas do evento;
-- envio de respostas;
+Nesta versão pública, denominada **OpinaAi Core**, foi preservado o núcleo funcional do sistema responsável pelo processo de avaliação.
+
+O fluxo contempla desde a entrada do participante até a persistência final das respostas, incluindo regras para controle de utilização dos tokens e retomada de avaliações em andamento.
+
+---
+
+## Principais funcionalidades
+
+- entrada pública em uma avaliação por token;
+- geração de fingerprint do dispositivo como sinal técnico de controle;
+- validação de utilização do token;
+- controle de participação por dispositivo e evento;
+- criação de novas avaliações;
+- retomada de avaliações em andamento;
+- bloqueio de avaliações já concluídas;
+- carregamento dinâmico das perguntas vinculadas ao evento;
+- avaliação por escala de 1 a 5 estrelas;
+- navegação sequencial entre perguntas;
 - comentário final opcional;
-- bloqueio de avaliação já concluída;
-- conexão com PostgreSQL;
-- health check do banco.
+- envio e persistência das respostas;
+- persistência dos dados em PostgreSQL;
+- uso de transações para conclusão da avaliação;
+- health check da conexão com o banco de dados.
 
-Rotas principais:
+---
 
-```txt
-/entrar-avaliacao
-/avaliacao/[avaliacaoId]
-/api/avaliacao/entrar
-/api/avaliacao/[avaliacaoId]/perguntas
-/api/avaliacao/enviar
-/api/health/db
-```
+## Tecnologias
+
+| Área | Tecnologias |
+|---|---|
+| Front-end | React, Next.js, TypeScript, Tailwind CSS |
+| Back-end | Next.js Route Handlers, TypeScript, Node.js |
+| Banco de dados | PostgreSQL, SQL |
+| Persistência | `pg` |
+| Versionamento | Git e GitHub |
+| Qualidade | ESLint, TypeScript Type Checking |
+
+---
+
+## Arquitetura
+
+O projeto foi organizado buscando separar responsabilidades entre interface, regras de aplicação, domínio e infraestrutura.
+
+```text
+src/
+├── app/
+│   ├── api/
+│   ├── avaliacao/
+│   └── entrar-avaliacao/
+│
+├── modules/
+│   ├── avaliacao/
+│   ├── device-session/
+│   ├── invite-token/
+│   ├── participante-evento/
+│   └── resposta/
+│
+└── shared/
+    ├── components/
+    └── infra/
