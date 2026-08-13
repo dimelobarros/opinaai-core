@@ -8,6 +8,24 @@ O projeto foi construído com o objetivo de aplicar, de forma integrada, compet�
 
 A solução implementa um fluxo de avaliação de eventos no qual participantes acessam um questionário por meio de token, respondem às perguntas disponíveis e têm suas avaliações persistidas em banco de dados PostgreSQL.
 
+## Demonstração
+
+### Entrada na avaliação
+
+![Tela de entrada por token do OpinaAi](docs/screenshots/opinaai-entrada.png)
+
+### Avaliação em andamento
+
+![Tela de avaliação do OpinaAi](docs/screenshots/opinaai-avaliacao.png)
+
+### Comentários
+
+![Tela de avaliação do OpinaAi](docs/screenshots/opinaai-comentarios.png)
+
+### Avaliação concluída
+
+![Tela de avaliação do OpinaAi](docs/screenshots/opinaai-concluida.png)
+
 ---
 
 ## Sobre o projeto
