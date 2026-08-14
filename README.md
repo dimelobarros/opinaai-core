@@ -825,8 +825,8 @@ Desenvolvedor Full Stack Júnior
 **Stack:**  
 JavaScript • TypeScript • React • Next.js • Node.js • PostgreSQL
 
-**LinkedIn:**  
-[Diego de Melo](https://br.linkedin.com/in/diego-de-melo-0a02b739b)
+**LinkedIn:** 
+[Diego de Melo](https://www.linkedin.com/in/diegodemelodev)
 
 **GitHub:**  
 [@dimelobarros](https://github.com/dimelobarros)
